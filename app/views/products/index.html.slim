@@ -15,6 +15,6 @@
             .col.s6
               .sort.right
                 span.title Sort by:
-                span = select_tag :shoe_sort, options_for_select([["DESC", "desc"], ["ASC", "asc"]], params[:shoe_sort]), include_blank: 'Alphabetical'
+                span = select_tag :shoe_sort, options_for_select([["DESC", "desc"], ["ASC", "asc"]], cookies[:shoe_sort]), include_blank: 'Alphabetical'
         .products
           = render partial: "products/list", locals: { products: @products }

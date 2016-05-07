@@ -1,5 +1,5 @@
 .products-search-container
-  = simple_form_for ProductFilter.new(params[:product_filter]), url: filter_products_path, remote: true, html: { method: :get } do |f|
+  = simple_form_for ProductFilter.new(params[:product_filter]), url: products_path, remote: true, html: { method: :get } do |f|
     .min-title Refine by
     .filter-content
       h4 Brands

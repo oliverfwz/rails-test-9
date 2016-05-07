@@ -2,11 +2,13 @@ class ProductsController < ApplicationController
   protect_from_forgery except: :filter
   
   def index
-    @products = Product.all
+    @product_filter = ProductFilter.new(search_params, cookies[:shoe_sort])
+    
+    @products = @product_filter.result
   end
 
   def filter
-    @product_filter = ProductFilter.new(search_params)
+    @product_filter = ProductFilter.new(search_params, cookies[:shoe_sort])
     
     @products = @product_filter.result
   end

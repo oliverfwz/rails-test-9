@@ -1,0 +1,2 @@
+$(".num-of-products span.number").html("<%= @products.size %>")
+$("#products-index-container .products").html("<%= escape_javascript(render partial: 'products/list', locals: { products: @products }) %>");
