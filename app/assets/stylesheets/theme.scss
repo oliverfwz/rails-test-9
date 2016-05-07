@@ -1,0 +1,19 @@
+*:focus {
+  outline: none!important;
+}
+
+.container {
+  width: 1070px;
+}
+
+@media (max-width: 991px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
