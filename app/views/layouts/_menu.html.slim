@@ -1,0 +1,19 @@
+.layouts-menu-container
+  nav
+    .nav-wrapper
+      = link_to 'Logo', '#!', class: 'brand-logo'
+      a.button-collapse href="#" data-activates="mobile-demo"
+        i.material-icons menu
+      ul.right.hide-on-med-and-down
+        li = link_to 'Sass', '#'
+        li = link_to 'Components', '#'
+        li = link_to 'JavaScript', '#'
+      ul#mobile-demo.side-nav
+        li = link_to 'Sass', '#'
+        li = link_to 'Components', '#'
+        li = link_to 'JavaScript', '#'
+
+javascript:
+  $( document ).ready(function(){
+    $(".button-collapse").sideNav();
+  });
