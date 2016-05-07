@@ -1,0 +1,11 @@
+#products-index-container
+  .container-left
+  .container-right
+    .banner
+    .products
+      - if @products.present?
+        - @products.in_groups_of(3, false) do |group|
+          - group.each do |product|
+            = render partial: "products/product", locals: { product: product }
+      - else
+        p There is no product in the listing.
