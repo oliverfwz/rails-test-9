@@ -8,3 +8,8 @@
     = js_will_paginate products, previous_label: "<i class='fa fa-chevron-left'></i>", next_label: "<i class='fa fa-chevron-right'></i>"
   - else
     p There is no product in the listing.
+
+javascript:
+  $('.pagination a').click(function() { 
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+  });

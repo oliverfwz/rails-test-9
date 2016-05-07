@@ -13,6 +13,8 @@
 
 javascript:
   var price_slider = document.getElementById('price_slider');
+  var call = 0;
+  
   noUiSlider.create(price_slider, {
     start: [0, 200],
     connect: true,
@@ -40,7 +42,6 @@ javascript:
     get_data()
   })
 
-  var call = 0;
   function get_data(){
     if (call == 0) {
       call = 1;
