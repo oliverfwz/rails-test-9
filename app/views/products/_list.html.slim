@@ -1,0 +1,9 @@
+.products-list-container
+  - if products.present?
+    - products.in_groups_of(3, false) do |group|
+      .row
+        - group.each do |product|
+          .col.s4
+            = render partial: "products/product", locals: { product: product }
+  - else
+    p There is no product in the listing.
