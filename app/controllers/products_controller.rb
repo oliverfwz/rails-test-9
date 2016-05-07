@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
     params[:product_filter].permit(
                                   :min_price,
                                   :max_price,
-                                  :brands => []
+                                  :brand_ids => []
                                   )
   end
 end

@@ -1,18 +1,7 @@
 #products-index-container
   .row
     .col.s3.container-left
-      = simple_form_for ProductFilter.new(params[:product_filter]), url: filter_products_path, remote: true, html: { method: :get } do |f|
-        .title Refine by
-        h4 Brands
-        .row
-          = f.collection_check_boxes :brands, Brand.all.map{ |c| [c.id, c.name] }, :first, :last
-        .row
-          .col.s6
-            = f.input :min_price, input_html: { type: "number" }, required: false, label: 'From ($)'
-          .col.s6
-            = f.input :max_price, input_html: { type: "number" }, required: false, label: 'To ($)'
-        .row
-          = f.button :submit, 'Search'
+      = render 'products/search'
     .col.s9.container-right
       .banner
       .products
