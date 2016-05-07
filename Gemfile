@@ -15,6 +15,7 @@ gem 'nested_form'
 gem 'materialize-sass'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'font-awesome-sass', '~> 4.5.0'
+gem 'will_paginate', '~> 3.1.0'
 
 group :development do
   gem 'html2slim'
