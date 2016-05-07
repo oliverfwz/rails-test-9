@@ -1,5 +1,12 @@
 .products-product-container
-  = image_tag product.picture.url(:thumb)
-  .name  = product.name
-  .sku   = product.sku
-  .price = product.price
+  .img 
+    = image_tag product.picture.url(:thumb)
+  .name = product.name
+  .sku = product.sku
+  .price 
+    | $
+    = number_with_precision(product.price, precision: 2, separator: ',', delimiter: '.')
+  .btn-wrap
+    button.waves-effect.waves-light.btnadd-to-cart 
+      = icon('shopping-cart')
+      = ' Add to Cart'
