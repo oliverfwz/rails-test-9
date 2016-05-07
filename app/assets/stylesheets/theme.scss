@@ -2,6 +2,21 @@
   outline: none!important;
 }
 
+body {
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  padding-bottom: 204px;
+  position: relative;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
 .container {
   width: 1070px;
 }

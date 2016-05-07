@@ -1,10 +1,14 @@
 @import "_variables";
 @import "_mixins";
 @import "materialize";
+@import "materialize/extras/nouislider";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "https://fonts.googleapis.com/css?family=Roboto:400,300,500,700";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "theme";
 @import "layouts/_header";
 @import "layouts/_footer";
+@import "products/index";
 @import "products/_product";
+@import "products/_search";

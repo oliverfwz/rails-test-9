@@ -1,13 +1,53 @@
 .products-search-container
   = simple_form_for ProductFilter.new(params[:product_filter]), url: filter_products_path, remote: true, html: { method: :get } do |f|
-    .title Refine by
-    h4 Brands
-    .row
-      = f.collection_check_boxes :brand_ids, Brand.all.map{ |c| [c.id, c.name] }, :first, :last
-    .row
-      .col.s6
-        = f.input :min_price, input_html: { type: "number" }, required: false, label: 'From ($)'
-      .col.s6
-        = f.input :max_price, input_html: { type: "number" }, required: false, label: 'To ($)'
-    .row
-      = f.button :submit, 'Search'
+    .min-title Refine by
+    .filter-content
+      h4 Brands
+      .brands
+        = f.collection_check_boxes :brand_ids, Brand.all.map{ |c| [c.id, c.name] }, :first, :last
+      h4 Price
+      .price
+        #price_slider
+        = f.input :min_price, as: :hidden
+        = f.input :max_price, as: :hidden
+
+javascript:
+  var price_slider = document.getElementById('price_slider');
+  noUiSlider.create(price_slider, {
+    start: [0, 200],
+    connect: true,
+    step: 1,
+    range: {
+      'min': 0,
+      'max': 200
+    },
+    format: wNumb({
+      decimals: 0
+    })
+  });
+
+  price_slider.noUiSlider.on('update', function( values, handle ) {
+    var value = values[handle];
+    if ( handle ) {
+      $('#product_filter_max_price').val(value)
+    } else {
+      $('#product_filter_min_price').val(value)
+    }
+    get_data()
+  });
+
+  $('input[name="product_filter[brand_ids][]"]').change(function(){
+    get_data()
+  })
+
+  var call = 0;
+  function get_data(){
+    if (call == 0) {
+      call = 1;
+      
+      setTimeout(function(){
+        $('#new_product_filter').submit();
+        call = 0;
+      }, 1000);
+    }
+  }
