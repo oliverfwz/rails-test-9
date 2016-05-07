@@ -8,12 +8,6 @@ class ProductsController < ApplicationController
     @products = @products.paginate(page: params[:page], per_page: 15)
   end
 
-  def filter
-    @product_filter = ProductFilter.new(search_params, cookies[:shoe_sort])
-    
-    @products = @product_filter.result
-  end
-
   protected
 
   def search_params
