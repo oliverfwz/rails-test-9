@@ -19,7 +19,7 @@ RSpec.describe ProductsController, type: :controller do
     let!(:products)      { create_list(:product, 2)}
     let!(:ruby)          { create(:brand, name: 'Ruby') }
     let!(:ror)           { create(:product, name: 'ROR', brand: ruby) }
-    let!(:search_params) { { :brands => [ruby.id] } }
+    let!(:search_params) { { :brand_ids => [ruby.id] } }
 
     it 'return result' do
       do_request

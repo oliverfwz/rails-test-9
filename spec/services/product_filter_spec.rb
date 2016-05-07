@@ -6,7 +6,7 @@ describe ProductFilter do
     let!(:ror)           { create(:product, name: 'ROR', brand: ruby) }
 
     it 'returns a list of products' do
-      products = ProductFilter.new(brands: [ruby.id]).result
+      products = ProductFilter.new(brand_ids: [ruby.id]).result
       expect(products).to include ror
     end
   end
