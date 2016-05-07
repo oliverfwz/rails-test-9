@@ -5,6 +5,6 @@
         - group.each do |product|
           .col.s4
             = render partial: "products/product", locals: { product: product }
-    = js_will_paginate products
+    = js_will_paginate products, previous_label: "<i class='fa fa-chevron-left'></i>", next_label: "<i class='fa fa-chevron-right'></i>"
   - else
     p There is no product in the listing.
